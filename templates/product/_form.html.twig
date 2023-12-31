@@ -1,0 +1,31 @@
+<form method="post">photo
+    <div class="mb-3">
+        <label for="inputName" class="form-label">Name</label>
+        <input type="text" id="inputName" name="name" placeholder="Sample : Veste" required class="form-control {{ violations.name is not defined ? '' : 'is-invalid' }}" value="{{ product.name }}">
+        {% for violation in violations.name %}
+            <div class="invalid-feedback">{{ violation }}</div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        <label for="inputPhoto" class="form-label">Photo</label>
+        <input type="text" id="inputPhoto" name="photo" placeholder="Sample : https://" required class="form-control {{ violations.photo is not defined ? '' : 'is-invalid' }}" value="{{ product.photo }}">
+        {% for violation in violations.photo %}
+            <div class="invalid-feedback">{{ violation }}</div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        <label for="inputPrice" class="form-label">Price</label>
+        <input type="text" id="inputPrice" name="price" placeholder="Sample : 12.34" required class="form-control {{ violations.price is not defined ? '' : 'is-invalid' }}" value="{{ product.price }}">
+        {% for violation in violations.price %}
+            <div class="invalid-feedback">{{ violation }}</div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        <label for="inputWeight" class="form-label">Weight</label>
+        <input type="text" id="inputWeight" name="weight" placeholder="Sample : 123.45" required class="form-control {{ violations.weight is not defined ? '' : 'is-invalid' }}" value="{{ product.weight }}">
+        {% for violation in violations.weight %}
+            <div class="invalid-feedback">{{ violation }}</div>
+        {% endfor %}
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

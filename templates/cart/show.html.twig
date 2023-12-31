@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Show Cart - {{ Cart.id }}{% endblock %}
+
+{% block body %}
+    <h1>Command N° {{ cart.id }}</h1>
+
+    <p>Number of items : <var>{{ cart.quantity }}</var></p>
+    <p>Photo : <var>a venir</var></p>
+    <p>Price : <var>{{ cart.price }}</var></p>
+    <p>Weight : <var>{{ cart.weight }}</var></p>
+
+    <form method="post" action="/command/new/{{ cart.id }}">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city">
+
+        <label for="postal_code">Postal Code:</label>
+        <input type="text" id="postal_code" name="postal_code">
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address">
+        <button type="submit" id="submit_button" disabled >Command</button>
+    </form>
+
+    <script>
+    var cityInput = document.getElementById('city');
+        var postalCodeInput = document.getElementById('postal_code');
+        var addressInput = document.getElementById('address');
+        var submitButton = document.getElementById('submit_button');
+
+        cityInput.addEventListener('input', checkFields);
+        postalCodeInput.addEventListener('input', checkFields);
+        addressInput.addEventListener('input', checkFields);
+
+        function checkFields() {
+            
+            if (cityInput.value.trim() !== '' && postalCodeInput.value.trim() !== '' && addressInput.value.trim() !== '') {
+                submitButton.disabled = false;
+            } else {
+                submitButton.disabled = true;
+            }
+        }
+    </script>
+    
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index Product{% endblock %}
+
+{% block body %}
+    <h1>Shop</h1>
+
+    <h2> Products available : {{ products|length }}</h2>
+
+
+    <div>
+        {% for product in products %}
+            {% if loop.first %}
+                <ul>
+            {% endif %}
+            
+                <a href="/product/{{ product.id }}">
+                <img src="{{ product.photo }}" alt="Product Photo" >
+                </a>
+                <h2>{{ product.name }}</h2>
+                {#<a href="/product/{{ product.id }}/edit">Edit</a>#}
+                {#<a href="/product/{{ product.id }}/delete">Delete</a>#}
+
+            {% if loop.last %}
+                </ul>
+            {% endif %}
+        {% else %}
+            <b>There are no products</b>
+        {% endfor %}
+    </div>
+{% endblock %}

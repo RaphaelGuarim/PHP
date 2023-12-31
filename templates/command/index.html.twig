@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index Command{% endblock %}
+
+{% block body %}
+    <h1>Index Command</h1>
+
+    <h2>NB Command - {{ commands|length }}</h2>
+
+    <a href="/command/new">New command</a>
+
+    <div>
+        {% for command in commands %}
+            {% if loop.first %}
+                <ul>
+            {% endif %}
+            <li>
+                <a href="/command/{{ command.id }}">{{ command.id }} - {{ command.price }}</a>
+                <a href="/command/{{ command.id }}/edit">Edit</a>
+                <a href="/command/{{ command.id }}/delete">Delete</a>
+            </li>
+            {% if loop.last %}
+                </ul>
+            {% endif %}
+        {% else %}
+            <b>There are no commands</b>
+        {% endfor %}
+    </div>
+{% endblock %}

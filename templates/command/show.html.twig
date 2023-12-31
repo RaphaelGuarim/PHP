@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Show Command - {{ Command.id }}{% endblock %}
+
+{% block body %}
+    <h1>Show Command - {{ command.id }}</h1>
+
+    <p>Name : <var>{{ command.adress }}</var></p>
+    <p>Photo : <var>{{ command.date }}</var></p>
+    <p>Price : <var>{{ command.price }}</var></p>
+    <p>Weight : <var>{{ command.weight }}</var></p>
+{% endblock %}

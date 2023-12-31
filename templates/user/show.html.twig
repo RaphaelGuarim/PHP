@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Show User - {{ user.id }}{% endblock %}
+
+{% block body %}
+    <h1>Show User - {{ user.id }}</h1>
+
+    <p>Name : <var>{{ user.name }}</var></p>
+    <p>Email : <var>{{ user.email }}</var></p>
+{% endblock %}
